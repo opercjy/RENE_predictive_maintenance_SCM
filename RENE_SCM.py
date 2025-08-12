@@ -573,6 +573,11 @@ class MainWindow(QMainWindow):
         self.radon_status_label.setText(f"상태: {status}")
 
     @pyqtSlot(str)
+    def show_status_message(self, message):
+        """상태바에 메시지를 잠시 표시합니다."""
+        self.statusBar().showMessage(message, 5000) # 5000ms = 5초간 표시
+
+    @pyqtSlot(str)
     def show_error_message(self, message):
         """에러 발생 시 사용자에게 메시지 박스를 표시합니다."""
         QMessageBox.critical(self, "오류 발생", f"에러가 발생했습니다:\n\n{message}")
