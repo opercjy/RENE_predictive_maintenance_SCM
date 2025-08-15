@@ -1,0 +1,40 @@
+{
+    "logging_level": "INFO",
+    "daq": {
+        "rtd": {
+            "device": "cDAQ9189-2189707Mod2",
+            "channels": ["ai0", "ai1", "ai2"]
+        },
+        "volt": {
+            "device": "cDAQ9189-2189707Mod1",
+            "channels": ["ai0", "ai1"],
+            "mapping": [
+                {"volt_range": [0.0, 10.0], "dist_range_mm": [400, 1800]},
+                {"volt_range": [0.0, 10.0], "dist_range_mm": [400, 1800]}
+            ]
+        },
+        "sampling_rate": 1000
+    },
+    "radon": {
+        "port": "/dev/ttyUSB0",
+        "interval_s": 600,
+        "stabilization_s": 600
+    },
+    "magnetometer": {
+        "resource_name": "USB0::0x1BFA::0x0498::0003055::INSTR",
+        "library_path": "/usr/lib/x86_64-linux-gnu/libvisa.so",
+        "interval_s": 1.0
+    },
+    "database": {
+        "enabled": false,
+        "user": "your_db_user",
+        "password": "your_db_password",
+        "host": "127.0.0.1",
+        "port": 3306,
+        "database": "SCM_DB",
+        "pool_size": 5
+    },
+    "gui": {
+        "max_data_points_days": 7
+    }
+}
