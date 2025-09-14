@@ -1,0 +1,68 @@
+{
+    "logging_level": "INFO",
+    "daq": {
+        "enabled": true,
+        "modules": [
+            {
+                "role": "LS_Temperature",
+                "serial_number": "21A3267",
+                "task_type": "rtd",
+                "channels": ["ai0", "ai1"]
+            },
+            {
+                "role": "LS_Level",
+                "serial_number": "21A3509",
+                "task_type": "volt",
+                "channels": ["ai0", "ai1"],
+                "mapping": [
+                    {"volt_range": [0.0, 10.0], "dist_range_mm": [400, 1800]},
+                    {"volt_range": [0.0, 10.0], "dist_range_mm": [400, 1800]}
+                ]
+            }
+        ],
+        "sampling_rate": 1000
+    },
+    "radon": {
+        "enabled": true,
+        "port": "/dev/ttyUSB1",
+        "interval_s": 600,
+        "stabilization_s": 600
+    },
+    "magnetometer": {
+        "enabled": true,
+        "resource_name": "USB0::0x1BFA::0x0498::0003055::INSTR",
+        "library_path": "",
+        "interval_s": 1.0
+    },
+    "th_o2": {
+        "enabled": true,
+        "port": "/dev/ttyUSB0",
+        "baudrate": 4800,
+        "modbus_id": 1,
+        "interval_s": 2
+    },
+    "arduino": {
+        "enabled": true,
+        "port": "/dev/ttyACM0",
+        "baudrate": 9600,
+        "interval_s": 2,
+        "data_mapping": {
+            "temp0": "analog_1",
+            "humi0": "analog_2",
+            "temp1": "analog_3",
+            "humi1": "analog_4",
+            "dist":  "analog_5"
+        }
+    },
+    "database": {
+        "enabled": true,
+        "user": "RENE_PM_ADMIN",
+        "password": "rene!Q@W#E$R",
+        "database": "RENE_PM",
+        "unix_socket": "/home/mariadb_data/mysql.sock"
+    },
+    "gui": {
+        "max_data_points_days": 31,
+        "shifter_name": "Jiyoung CHOI (Chonnam Nat'l Univ.)"
+    }
+}
